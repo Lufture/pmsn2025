@@ -1,32 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:pmsn2025/colors_app.dart';
+import 'package:pmsn2025/screens/home_screen.dart';
+import 'package:pmsn2025/screens/register_screen.dart';
+import 'screens/login_screen.dart';
 
-void main() => runApp( MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  int contador = 0;
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: Container(
-          child: Center( child: Text('Contador $contador'  , style: TextStyle(fontSize: 25,fontFamily: 'Vanilla',color: ColorsApp.txtColor ),)),
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.ads_click),
-          onPressed:(){
-          contador++;
-          print(contador);
-        } ,
-      ),
-    )
-    );
+      theme: ThemeData.dark(),
+      routes: {
+        "/home":(context) => HomeScreen(),
+        "/login":(context) => LoginScreen(),
+        "/register":(context) => RegisterScreen(),
+      },
+      title: 'Material App', home: LoginScreen()
+      );
   }
-  miEvento(){}
 }
