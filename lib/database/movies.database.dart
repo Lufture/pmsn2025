@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:path_provider/path_provider.dart';
+import 'package:pmsn2025/models/movie_dao.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -31,7 +32,7 @@ class MoviesDatabase {
         idMovie INTEGER PRIMARY KEY,
         nameMovie varchar(50),
         time char(3),
-        dateRealse char(10),
+        dateRelease char(10),
       )
     ''';
     db.execute(query);
@@ -51,5 +52,10 @@ class MoviesDatabase {
     var con = await database;
     return con!.delete(table,where: 'idMovie = ?',whereArgs: [id]);
   }
-  SELECT(){}
+  Future<List<MovieDao>> SELECT() async{
+    var con = await database;
+    final res = await con!.query('tblMovies');
+    return res.map((movie) => MovieDao.fromMap(movie),).toList();
+
+  }
 }
