@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pmsn2025/screens/home_screen.dart';
+import 'package:pmsn2025/screens/list_movies.dart';
 import 'package:pmsn2025/screens/register_screen.dart';
 import 'screens/login_screen.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       routes: {
         "/home":(context) => HomeScreen(),
+        "/listdb" :(context) => ListMovies(),
         "/login":(context) => LoginScreen(),
         "/register":(context) => RegisterScreen(),
       },

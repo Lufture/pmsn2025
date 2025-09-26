@@ -26,6 +26,29 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+
+              accountName: Text('Marcos Gomez Paez'),
+              accountEmail: Text('20030065@itcelaya.edu.mx'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage('https://i.pravatar.cc/300'),
+              ) ,
+
+              ),
+
+            ListTile(
+              leading: Icon(Icons.movie),
+              title: Text('List Movies'),
+              subtitle: Text('Database Movies'),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () => Navigator.pushNamed(context, "/listMovies"),
+            )
+          ],
+        ),
+      ),
       endDrawer: Drawer(),
       body: Center(child: Text("Menu de Opciones")),
       bottomNavigationBar: SafeArea(
