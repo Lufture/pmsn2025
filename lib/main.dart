@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pmsn2025/screens/home_screen.dart';
 import 'package:pmsn2025/screens/list_movies.dart';
 import 'package:pmsn2025/screens/register_screen.dart';
+import 'package:pmsn2025/screens/add_movie_screen.dart';
 import 'screens/login_screen.dart';
 
 void main() => runApp(MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         "/listdb" :(context) => ListMovies(),
         "/login":(context) => LoginScreen(),
         "/register":(context) => RegisterScreen(),
+        "/add":(context) => AddMovieScreen(),
       },
       title: 'Material App', home: LoginScreen()
       );

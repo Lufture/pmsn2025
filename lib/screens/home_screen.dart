@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: Text('List Movies'),
               subtitle: Text('Database Movies'),
               trailing: Icon(Icons.chevron_right),
-              onTap: () => Navigator.pushNamed(context, "/listMovies"),
+              onTap: () => Navigator.pushNamed(context, "/listdb"),
             )
           ],
         ),

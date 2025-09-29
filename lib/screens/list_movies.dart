@@ -23,6 +23,18 @@ class _ListMoviesState extends State<ListMovies> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Movies List'),
+        actions: [
+          IconButton(
+            onPressed: (){
+              Navigator.pushNamed(context, "/add")
+              .then((value) => setState(() {
+
+              }));
+            },
+            icon: Icon(Icons.add),
+          )
+        ],
+
       ),
       body: FutureBuilder(future: moviesDB!.SELECT(),
       builder: (context, snapshot){
@@ -30,7 +42,10 @@ class _ListMoviesState extends State<ListMovies> {
           return Center(child: Text('ERRRR, está mal'),);
         } else{
           if(snapshot.hasData){
-            return ListView.builder(
+            return snapshot.data == null || snapshot.data!.isEmpty
+            ? Center(child: Text('No hay datos'),)
+            : ListView.builder(
+              itemCount: snapshot.data!.length,
               itemBuilder: (context, index){
                 final objM = snapshot.data![index];
                 return Container(

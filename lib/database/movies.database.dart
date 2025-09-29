@@ -32,9 +32,8 @@ class MoviesDatabase {
         idMovie INTEGER PRIMARY KEY,
         nameMovie varchar(50),
         time char(3),
-        dateRelease char(10),
-      )
-    ''';
+        dateRelease char(10)
+      )''';
     db.execute(query);
   }
   Future<int> INSERT(String table, Map<String,dynamic> data) async {
